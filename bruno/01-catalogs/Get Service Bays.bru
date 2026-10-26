@@ -1,0 +1,17 @@
+meta {
+  name: Lookup Service Bays (Dropdown)
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/v1/service-bays/lookup?dealershipId={{dealershipId}}&page=0&limit=20
+  body: none
+  auth: none
+}
+
+params:query {
+  dealershipId: {{dealershipId}}
+  page: 0
+  limit: 20
+}

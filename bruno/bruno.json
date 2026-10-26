@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Unified Service Scheduler",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

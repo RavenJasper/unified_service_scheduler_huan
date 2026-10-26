@@ -1,0 +1,33 @@
+meta {
+  name: Book Appointment (Happy Path)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "customerId": 3,
+    "vehicleVin": "1HGCR2F83HA000009",
+    "dealershipId": 1,
+    "serviceTypeId": 2,
+    "requestedStartTime": "2026-11-05T09:00:00Z"
+  }
+}
+
+vars:post-response {
+  appointmentId: res.body.id
+  referenceNumber: res.body.referenceNumber
+}
+
+script:post-response {
+  if (res.body && res.body.id) {
+    bru.setEnvVar("appointmentId", res.body.id);
+    bru.setEnvVar("referenceNumber", res.body.referenceNumber);
+  }
+}

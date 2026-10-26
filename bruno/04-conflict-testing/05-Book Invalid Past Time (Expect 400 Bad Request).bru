@@ -1,0 +1,27 @@
+meta {
+  name: 5. Book Invalid Past Time (Expect 400 Bad Request)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "customerId": 2,
+    "vehicleVin": "1HGCR2F83HA000002",
+    "dealershipId": 1,
+    "serviceTypeId": 2,
+    "requestedStartTime": "2020-01-01T09:00:00Z"
+  }
+}
+
+docs {
+  Past Date Validation Test:
+  Attempting to book in the past (2020-01-01) triggers Jakarta @Future constraint validation,
+  returning HTTP 400 Bad Request with an RFC 7807 Problem Details payload.
+}

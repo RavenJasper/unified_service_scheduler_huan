@@ -1,0 +1,22 @@
+meta {
+  name: Cancel Appointment
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments/{{appointmentId}}/cancel
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cancellationReason": "Customer requested change of plans"
+  }
+}
+
+docs {
+  Cancels the confirmed appointment, releasing the service bay and technician back to available inventory.
+  Logs a CANCELLED audit trail record.
+}

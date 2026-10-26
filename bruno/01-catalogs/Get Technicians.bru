@@ -1,0 +1,17 @@
+meta {
+  name: Lookup Technicians (Dropdown)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v1/technicians/lookup?dealershipId={{dealershipId}}&page=0&limit=20
+  body: none
+  auth: none
+}
+
+params:query {
+  dealershipId: {{dealershipId}}
+  page: 0
+  limit: 20
+}

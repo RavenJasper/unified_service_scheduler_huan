@@ -1,0 +1,33 @@
+meta {
+  name: Search Appointments (Paged)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v1/appointments/search?dealershipId={{dealershipId}}&page=0&size=5&sort=startTime,asc&status=CONFIRMED
+  body: none
+  auth: none
+}
+
+params:query {
+  dealershipId: {{dealershipId}}
+  page: 0
+  size: 5
+  sort: startTime,asc
+  status: CONFIRMED
+  ~technicianId: 1
+  ~customerId: 3
+}
+
+script:post-response {
+  if (res.body && res.body.content && res.body.content.length > 0) {
+    bru.setEnvVar("appointmentId", res.body.content[0].id);
+    bru.setEnvVar("referenceNumber", res.body.content[0].referenceNumber);
+  }
+}
+
+docs {
+  Searches appointments with Spring Data pagination and filters (dealership, customer, technician, status).
+  Automatically captures the first appointment ID into the environment.
+}

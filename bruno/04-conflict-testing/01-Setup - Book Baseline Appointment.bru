@@ -1,0 +1,31 @@
+meta {
+  name: 1. Setup - Book Baseline Appointment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "customerId": 1,
+    "vehicleVin": "1HGCR2F83HA000001",
+    "dealershipId": 1,
+    "serviceTypeId": 2,
+    "requestedStartTime": "2026-11-20T09:00:00Z"
+  }
+}
+
+vars:post-response {
+  baselineAppointmentId: res.body.id
+}
+
+docs {
+  Setup request: Creates a confirmed baseline appointment for Customer 1 (John Doe)
+  with VIN 1HGCR2F83HA000001 at Dealership 1 for 2026-11-20T09:00:00Z (Brake Service, 60 minutes).
+  Subsequent requests in this folder will test resource conflict invariants against this booking.
+}

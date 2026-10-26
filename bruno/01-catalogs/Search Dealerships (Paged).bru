@@ -1,0 +1,18 @@
+meta {
+  name: Search Dealerships (Paged)
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/api/v1/dealerships/search?query=Metro&page=0&size=5&sort=code,asc
+  body: none
+  auth: none
+}
+
+params:query {
+  query: Metro
+  page: 0
+  size: 5
+  sort: code,asc
+}

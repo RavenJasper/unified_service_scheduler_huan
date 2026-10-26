@@ -1,0 +1,11 @@
+meta {
+  name: Get Appointment by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v1/appointments/{{appointmentId}}
+  body: none
+  auth: none
+}

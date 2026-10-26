@@ -1,0 +1,29 @@
+meta {
+  name: 6. Book Outside Operating Hours (Expect 400 Bad Request)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "customerId": 2,
+    "vehicleVin": "1HGCR2F83HA000002",
+    "dealershipId": 1,
+    "serviceTypeId": 2,
+    "requestedStartTime": "2026-11-20T02:00:00Z"
+  }
+}
+
+docs {
+  Operating Hours Validation Test:
+  Dealership 1 operates between 08:00:00 and 18:00:00 UTC.
+  Attempting to book at 02:00:00 UTC falls outside operating hours,
+  returning HTTP 400 Bad Request:
+  "Appointment falls outside dealership operating hours."
+}

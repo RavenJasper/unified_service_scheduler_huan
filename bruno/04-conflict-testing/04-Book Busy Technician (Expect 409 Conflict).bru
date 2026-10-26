@@ -1,0 +1,29 @@
+meta {
+  name: 4. Book Busy Technician (Expect 409 Conflict)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "customerId": 4,
+    "vehicleVin": "1HGCR2F83HA000044",
+    "dealershipId": 1,
+    "serviceTypeId": 1,
+    "technicianId": 1,
+    "requestedStartTime": "2026-11-20T09:00:00Z"
+  }
+}
+
+docs {
+  Technician Contention Test:
+  Customer 4 specifically requests Technician 1 (Alex Nguyen) at 2026-11-20T09:00:00Z.
+  Since Tech 1 is already committed to Customer 1's appointment, the server must reject with HTTP 409 Conflict:
+  "Requested technician is unavailable for this time window."
+}

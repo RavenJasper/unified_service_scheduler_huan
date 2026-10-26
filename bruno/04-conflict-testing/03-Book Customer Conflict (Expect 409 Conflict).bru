@@ -1,0 +1,29 @@
+meta {
+  name: 3. Book Customer Conflict (Expect 409 Conflict)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "customerId": 1,
+    "vehicleVin": "1HGCR2F83HA000088",
+    "dealershipId": 1,
+    "serviceTypeId": 1,
+    "requestedStartTime": "2026-11-20T09:00:00Z"
+  }
+}
+
+docs {
+  Customer Conflict Test:
+  The same Customer 1 (John Doe) attempts to book a second simultaneous appointment for another car
+  (VIN 1HGCR2F83HA000088) in an overlapping time window (2026-11-20T09:00:00Z).
+  The server must reject with HTTP 409 Conflict:
+  "Customer already has an active appointment in this time window."
+}

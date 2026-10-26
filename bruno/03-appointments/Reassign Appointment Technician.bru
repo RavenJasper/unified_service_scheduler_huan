@@ -1,0 +1,23 @@
+meta {
+  name: Reassign Appointment Technician
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments/{{appointmentId}}/reassign
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "technicianId": 2,
+    "reason": "Reassigned to David Tran (Tech 2) for workload rebalancing"
+  }
+}
+
+docs {
+  Reassigns an existing confirmed appointment to another qualified technician (David Tran - Tech 2).
+  Enforces skill match (BRAKE_SPECIALIST) and slot availability with pessimistic locking.
+}

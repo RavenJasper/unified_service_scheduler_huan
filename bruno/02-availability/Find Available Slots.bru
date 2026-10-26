@@ -1,0 +1,20 @@
+meta {
+  name: Find Available Slots
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/schedules/available-slots?dealershipId={{dealershipId}}&serviceTypeId={{serviceTypeId}}&startDate=2026-11-01&endDate=2026-11-05&desiredTime=10:00:00
+  body: none
+  auth: none
+}
+
+params:query {
+  dealershipId: {{dealershipId}}
+  serviceTypeId: {{serviceTypeId}}
+  startDate: 2026-11-01
+  endDate: 2026-11-05
+  desiredTime: 10:00:00
+  ~date: 2026-11-02
+}

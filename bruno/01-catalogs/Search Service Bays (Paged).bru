@@ -1,0 +1,18 @@
+meta {
+  name: Search Service Bays (Paged)
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/api/v1/service-bays/search?dealershipId={{dealershipId}}&page=0&size=5&sort=bayNumber,asc
+  body: none
+  auth: none
+}
+
+params:query {
+  dealershipId: {{dealershipId}}
+  page: 0
+  size: 5
+  sort: bayNumber,asc
+}

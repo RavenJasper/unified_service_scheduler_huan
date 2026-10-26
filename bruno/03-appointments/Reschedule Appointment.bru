@@ -1,0 +1,23 @@
+meta {
+  name: Reschedule Appointment
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/v1/appointments/{{appointmentId}}/reschedule
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "newStartTime": "2026-11-05T14:00:00Z",
+    "reason": "Customer requested afternoon slot"
+  }
+}
+
+docs {
+  Reschedules an existing confirmed appointment to a new time window (afternoon 14:00:00 UTC).
+  Uses dynamic {{appointmentId}} from previous booking step.
+}

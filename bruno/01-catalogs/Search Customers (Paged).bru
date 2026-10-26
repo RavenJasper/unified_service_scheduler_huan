@@ -1,0 +1,17 @@
+meta {
+  name: Search Customers (Paged)
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/api/v1/customers/search?query=John&page=0&size=10
+  body: none
+  auth: none
+}
+
+params:query {
+  query: John
+  page: 0
+  size: 10
+}

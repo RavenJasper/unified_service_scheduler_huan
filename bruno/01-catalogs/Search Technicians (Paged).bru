@@ -1,0 +1,18 @@
+meta {
+  name: Search Technicians (Paged)
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/api/v1/technicians/search?dealershipId={{dealershipId}}&page=0&size=5&sort=employeeCode,asc
+  body: none
+  auth: none
+}
+
+params:query {
+  dealershipId: {{dealershipId}}
+  page: 0
+  size: 5
+  sort: employeeCode,asc
+}

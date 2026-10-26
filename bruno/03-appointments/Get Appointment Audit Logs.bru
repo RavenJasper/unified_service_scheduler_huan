@@ -1,0 +1,19 @@
+meta {
+  name: Get Appointment Audit Logs
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/api/v1/appointments/{{appointmentId}}/audit-logs
+  body: none
+  auth: none
+}
+
+docs {
+  Retrieves chronological immutable audit logs for this specific appointment,
+  verifying transitions:
+  1. BOOKED
+  2. REASSIGNED (to Tech 2)
+  3. RESCHEDULED (to 14:00:00)
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Search Service Types (Paged)
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/api/v1/service-types/search?query=Brake&page=0&size=5&sort=code,asc
+  body: none
+  auth: none
+}
+
+params:query {
+  query: Brake
+  page: 0
+  size: 5
+  sort: code,asc
+}

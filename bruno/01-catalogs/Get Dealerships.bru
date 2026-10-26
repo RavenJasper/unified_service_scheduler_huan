@@ -1,0 +1,16 @@
+meta {
+  name: Lookup Dealerships (Dropdown)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/dealerships/lookup?page=0&limit=20
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 0
+  limit: 20
+}
